@@ -87,7 +87,7 @@ export const getAllUser = async (req, res) => {
 
 // get all user no error
 
-export const getUserProfile = async (res, req) => {
+export const getUserProfile = async (req, res) => {
   const userId = req.userId;
   try {
     const user = await User.findById(userId);
