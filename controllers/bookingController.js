@@ -6,7 +6,7 @@ import Stripe from "stripe";
 export const getCheckoutSession = async (req, res) => {
   try {
     const doctor = await Doctor.findById(req.params.doctorId);
-    const user = await User.findById(req.userID);
+    const user = await User.findById(req.userId);
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -45,6 +45,6 @@ export const getCheckoutSession = async (req, res) => {
   } catch (err) {
     res
       .status(500)
-      .json({ success: false, message: "Error creating checkout session" });
+      .json({ success: false, message: "Error creating checkout session " });
   }
 };
